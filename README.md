@@ -16,4 +16,4 @@ Proyecto orientado al diseño y desarrollo de una aventura gráfica interactiva 
 - Integración de contenido multimedia generativo
 
 ## Autor
-Daniel Alejandro Toledo
+Daniel Toledo
