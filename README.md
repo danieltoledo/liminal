@@ -15,5 +15,5 @@ Proyecto orientado al diseño y desarrollo de una aventura gráfica interactiva 
 - Filtros y efectos visuales e interactivos
 - Integración de contenido multimedia generativo
 
-## Autor
+## Autoría
 Daniel Toledo
