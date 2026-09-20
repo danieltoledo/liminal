@@ -7,7 +7,7 @@ pantalla8, fuenteBoton, fuenteCuadro, patioReal, transparentes;
 function preload() 
 {
   pantalla0 = loadImage("assets/patio.png"); 
-  pantalla1 = loadImage("assets/mascotas.png "); 
+  pantalla1 = loadImage("assets/mascotas.png"); 
   pantalla2 = loadImage("assets/patio-tarde.png"); 
   pantalla3 = loadImage("assets/patio-animado.gif"); 
   pantalla4 = loadImage("assets/patio-tarde-animado.gif"); 
@@ -79,7 +79,7 @@ function draw()
 
     case 5:
       image(pantalla5, 0, 0, width, height);
-      grisHover(pantalla5, 255);
+      grisHover();
       dibujarBoton("FIN", width*0.80, height*0.66, 120, 48, 0);
       dibujarCuadro("Con el tiempo,\nlos recuerdos dejan de ser exactos.\nPero a veces se vuelven más cálidos.", 
       width/2, height*0.85, 360, 125);
