@@ -4,9 +4,29 @@ let estado = 0;
 let pantalla0, pantalla1, pantalla2, pantalla3, pantalla4, pantalla5, pantalla6, pantalla7,
 pantalla8, fuenteBoton, fuenteCuadro, patioReal, transparentes;
 
+const descripciones = 
+{
+  0: 'Patio durante un día nublado',
+  1: 'Patio durante un día nublado con los 3 perros recostados',
+  2: 'Patio al atardecer',
+  3: 'Patio durante un día nublado y la aparición de rayos solares',
+  4: 'Patio al atardecer y el sol asomándose por el horizonte',
+  5: 'Los 3 perros bajan las orejas, miran a la cámara y mueven la cola',
+  6: 'Los 3 perros recostados, mirando a la cámara, agitados y con la aparición de rayos solares',
+  7: 'Los 3 perros recostados, mirando a la cámara y congelados mientras aparecen ondulaciones alrededor',
+  8: 'Los 3 perros se levantan y van hacia la cámara',
+  patioReal: 'Patio real de la casa familiar durante un día nublado',
+  transparentes: 'Los 3 perros recostados mirando a la cámara pero con un fondo translúcido que permite ver el patio de fondo'
+};
+
+function actualizarDescripcion() 
+{
+  describe(descripciones[estado]);
+}
+
 function preload() 
 {
-  pantalla0 = loadImage("assets/patio.png"); 
+  pantalla0 = loadImage("assets/patio.png");
   pantalla1 = loadImage("assets/mascotas.png"); 
   pantalla2 = loadImage("assets/patio-tarde.png"); 
   pantalla3 = loadImage("assets/patio-animado.gif"); 
@@ -15,9 +35,8 @@ function preload()
   pantalla6 = loadImage("assets/mascotas-agitadas.gif"); 
   pantalla7 = loadImage("assets/mascotas-liminal.gif"); 
   pantalla8 = loadImage("assets/mascotas-ingresando.gif");
-  
   patioReal = loadImage("assets/patio-real.jpg");
-  transparentes = loadImage("assets/mascotas-transparentes.png"); 
+  transparentes = loadImage("assets/mascotas-transparentes.png");
 
   fuenteBoton = loadFont("assets/Montserrat-Medium.ttf");
   fuenteCuadro = loadFont("assets/Montserrat-Regular.ttf");
@@ -25,8 +44,9 @@ function preload()
 
 function setup() 
 {
-  createCanvas(400, 600);
+  createCanvas(400, 600).parent('contenedorCanva');
   noCursor();
+  actualizarDescripcion();
 }
 
 function draw() 
@@ -260,6 +280,7 @@ function chequearClick(x_, y_, ancho_, alto_, estadoDestino_)
   if(mouseOverRect(x_, y_, ancho_, alto_)) 
   {
     estado = estadoDestino_;
+    actualizarDescripcion();
   }
 }
 
@@ -273,6 +294,7 @@ function patioHover()
     fill(255);
     image(patioReal, 0, 0, width, height);
     pop();
+    describe(descripciones.patioReal);
   }
 }
 
@@ -364,5 +386,6 @@ function mascotasHover()
     tint(255, 120);
     image(transparentes, 0, 0, width, height);
     pop();
+    describe(descripciones.transparentes);
   }
 }
